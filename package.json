@@ -1,8 +1,8 @@
 {
-  "name": "redux-effects-localstorage",
-  "description": "Redux effects driver for localStorage",
-  "repository": "git://github.com/redux-effects/redux-effects-localstorage.git",
-  "version": "0.1.7",
+  "name": "redux-effects-sessionstorage",
+  "description": "Redux effects driver for sessionStorage",
+  "repository": "git://github.com/npasserini/redux-effects-sessionstorage.git",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
