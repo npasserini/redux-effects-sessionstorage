@@ -2,34 +2,34 @@
  * Action type
  */
 
-const EFFECT_LOCALSTORAGE = 'EFFECT_LOCALSTORAGE'
+const EFFECT_SESSIONSTORAGE = 'EFFECT_SESSIONSTORAGE'
 
 /**
- * redux-effects-localstorage
+ * redux-effects-sessionStorage
  */
 
-function storage (localStorage) {
+function storage (sessionStorage) {
   return api => next => action =>
-    action.type === EFFECT_LOCALSTORAGE
+    action.type === EFFECT_SESSIONSTORAGE
       ? execute(action.payload)
       : next(action)
 
   function execute ({type, key, value, n}) {
     switch (type) {
       case 'key':
-        return Promise.resolve(localStorage.key(n))
+        return Promise.resolve(sessionStorage.key(n))
       case 'getItem':
-        return Promise.resolve(localStorage.getItem(key))
+        return Promise.resolve(sessionStorage.getItem(key))
       case 'setItem':
-        return Promise.resolve(localStorage.setItem(key, value))
+        return Promise.resolve(sessionStorage.setItem(key, value))
       case 'removeItem':
-        return Promise.resolve(localStorage.removeItem(key, value))
+        return Promise.resolve(sessionStorage.removeItem(key, value))
       case 'clear':
-        return Promise.resolve(localStorage.clear())
+        return Promise.resolve(sessionStorage.clear())
       case 'length':
-        return Promise.resolve(localStorage.length)
+        return Promise.resolve(sessionStorage.length)
       default:
-        throw new Error('redux-effects-localstorage unknown localStorage action type')
+        throw new Error('redux-effects-sessionStorage unknown sessionStorage action type')
     }
   }
 }
@@ -40,7 +40,7 @@ function storage (localStorage) {
 
 function createAction (payload) {
   return {
-    type: EFFECT_LOCALSTORAGE,
+    type: EFFECT_SESSIONSTORAGE,
     payload
   }
 }
